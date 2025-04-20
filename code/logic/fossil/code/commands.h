@@ -18,10 +18,8 @@
 #include <fossil/sys/framework.h>
 #include <fossil/io/framework.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#define FOSSIL_APP_NAME "Crab Daemon"
+#define FOSSIL_APP_VERSION "0.1.0"
 
 #ifdef __cplusplus
 extern "C" {
