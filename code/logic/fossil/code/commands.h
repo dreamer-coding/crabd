@@ -26,6 +26,11 @@ extern "C" {
 #endif
 
 /**
+ * @brief Prints the help message for the CrabDB application.
+ */
+void handle_help(void);
+
+/**
  * @brief Prints the version of the CrabDB application.
  */
 void handle_version(void);
@@ -38,42 +43,47 @@ void handle_name(void);
 /**
  * @brief Starts a CrabDB instance.
  */
-void handle_start(void);
+void handle_start(int argc, char** argv);
 
 /**
  * @brief Stops a running CrabDB instance.
  */
-void handle_stop(void);
+void handle_stop(int argc, char** argv);
 
 /**
  * @brief Checks the status of a CrabDB instance.
  */
-void handle_status(void);
+void handle_status(int argc, char** argv);
 
 /**
  * @brief Restarts a CrabDB instance.
  */
-void handle_restart(void);
+void handle_restart(int argc, char** argv);
 
 /**
  * @brief Lists all active CrabDB processes.
  */
-void handle_list(void);
+void handle_list(int argc, char** argv);
 
 /**
  * @brief Fetches logs for a CrabDB instance.
  */
-void handle_logs(void);
+void handle_logs(int argc, char** argv);
 
 /**
  * @brief Reloads the configuration of a CrabDB instance.
  */
-void handle_reload(void);
+void handle_reload(int argc, char** argv);
 
 /**
  * @brief Changes the configuration of a CrabDB instance.
  */
-void handle_config(void);
+void handle_config(int argc, char** argv);
+
+/**
+ * @brief Runs internal tests for the CrabDB application.
+ */
+void handle_test(int argc, char** argv);
 
 #ifdef __cplusplus
 }
