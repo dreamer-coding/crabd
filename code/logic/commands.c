@@ -49,47 +49,56 @@ void handle_name(void) {
     fossil_io_printf("Application name: %s\n", FOSSIL_APP_NAME);
 }
 
-void handle_start(void) {
+void handle_start(int argc, char** argv) {
     fossil_io_printf("Starting CrabDB instance...\n");
     // Implement start logic
+    (void)argc; (void)argv;
 }
 
-void handle_stop(void) {
+void handle_stop(int argc, char** argv) {
     fossil_io_printf("Stopping CrabDB instance...\n");
     // Implement stop logic
+    (void)argc; (void)argv;
 }
 
-void handle_status(void) {
+void handle_status(int argc, char** argv) {
     fossil_io_printf("Checking CrabDB instance status...\n");
     // Implement status logic
+    (void)argc; (void)argv;
 }
 
-void handle_restart(void) {
+void handle_restart(int argc, char** argv) {
     fossil_io_printf("Restarting CrabDB instance...\n");
     // Implement restart logic
+    (void)argc; (void)argv;
 }
 
-void handle_list(void) {
+void handle_list(int argc, char** argv) {
     fossil_io_printf("Listing all active CrabDB processes...\n");
     // Implement list logic
+    (void)argc; (void)argv;
 }
 
-void handle_logs(void) {
+void handle_logs(int argc, char** argv) {
     fossil_io_printf("Fetching logs for CrabDB instance...\n");
     // Implement logs logic
+    (void)argc; (void)argv;
 }
 
-void handle_reload(void) {
+void handle_reload(int argc, char** argv) {
     fossil_io_printf("Reloading CrabDB instance configuration...\n");
     // Implement reload logic
+    (void)argc; (void)argv;
 }
 
-void handle_config(void) {
+void handle_config(int argc, char** argv) {
     fossil_io_printf("Changing configuration of CrabDB instance...\n");
     // Implement config logic
+    (void)argc; (void)argv;
 }
 
-void handle_test(void) {
+void handle_test(int argc, char** argv) {
     fossil_io_printf("Running tests on CrabDB instance...\n");
     // Implement test logic
+    (void)argc; (void)argv;
 }
