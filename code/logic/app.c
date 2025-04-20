@@ -12,33 +12,46 @@
  * -----------------------------------------------------------------------------
  */
 #include "fossil/code/app.h"
-#include "fossil/code/lifecycle.h"
 
-
-// Fossil App example implementation (Custom application)
-void custom_app_on_create(fossil_app_engine_t* app) {
-    fossil_io_printf("Custom App Created\n");
-    app->state = FOSSIL_APP_LIFECYCLE_STATE_CREATED;
-}
-
-void custom_app_on_start(fossil_app_engine_t* app) {
-    fossil_io_printf("Custom App Started\n");
-    app->state = FOSSIL_APP_LIFECYCLE_STATE_STARTED;
-}
 
 bool app_entry(int argc, char** argv) {
-    (void)argc; // Unused parameter
-    (void)argv; // Unused parameter
+    if (argc < 2) {
+        fossil_io_printf("{blue,bold}Usage: crabd <command> [options]{reset}\n");
+        return EXIT_FAILURE;
+    }
 
-    fossil_io_printf("Custom App Entry\n");
-    fossil_app_engine_t app;
-    fossil_app_init(&app);
-    
-    // Overriding with custom app-specific behavior
-    app.on_create = custom_app_on_create;
-    app.on_start = custom_app_on_start;
+    // The first argument is the command
+    const char *command = argv[1];
 
-    // Run the Fossil App engine
-    fossil_app_run(&app);
-    return 0;
+    // Parse the command
+    if (fossil_io_cstring_compare(command, "--help") == 0) {
+        handle_help();
+    } else if (fossil_io_cstring_compare(command, "--version") == 0) {
+        handle_version();
+    } else if (fossil_io_cstring_compare(command, "--name") == 0) {
+        handle_name();
+    } else if (fossil_io_cstring_compare(command, "start") == 0) {
+        handle_start(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "stop") == 0) {
+        handle_stop(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "status") == 0) {
+        handle_status(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "restart") == 0) {
+        handle_restart(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "list") == 0) {
+        handle_list(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "logs") == 0) {
+        handle_logs(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "reload") == 0) {
+        handle_reload(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "config") == 0) {
+        handle_config(argc, argv);
+    } else if (fossil_io_cstring_compare(command, "test") == 0) {
+        handle_test(argc, argv);
+    } else {
+        fossil_io_printf("Unknown command: %s\n", command);
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
 }
