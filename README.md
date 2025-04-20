@@ -4,19 +4,24 @@
 
 ---
 
-## 🔧 `crabd` Command Reference
+## 🧭 CrabDB Command Reference
 
-| Command / Flag             | Description                                                                 |
-|---------------------------|-----------------------------------------------------------------------------|
-| `--help`                  | Show usage instructions                                                     |
-| `--version`               | Print the daemon’s version                                                  |
-| `--config <file>`         | Load config from a specific `.toml` file (default: `/etc/crabd/config.toml`)|
-| `--foreground`            | Run in the foreground (no daemonization)                                    |
-| `--port <port>`           | Override listening port (default: `4747`)                                   |
-| `--host <ip>`             | Bind to a specific IP (default: `0.0.0.0`)                                   |
-| `--log <file>`            | Log to a specified file (overrides config)                                  |
-| `--init-db`               | Initialize default `.crabdb` files from templates                           |
-| `--dry-run`               | Validate configuration and exit without starting                            |
+| Command                         | Flags / Options                           | Description |
+|----------------------------------|--------------------------------------------|-------------|
+| `crabdb --version`               |                                            | Displays the version of the CrabDB instance |
+| `crabdb --name`                  |                                            | Displays the name of the CrabDB instance |
+| `crabdb --help`                  |                                            | Shows help information for the CrabDB commands |
+| `crabdb start`                   | `--file <db.myshell/db.noshell>`, `--mode [myshell/noshell]`, `--port <port>`, `--background` | Starts a CrabDB instance for the specified database file |
+| `crabdb stop`                    | `--pid <pid>`, `--file <db>`              | Stops a running CrabDB instance |
+| `crabdb status`                  | `--file <db>`, `--verbose`                | Checks if the instance is running and shows details |
+| `crabdb restart`                 | `--file <db>`, `--force`                  | Stops and restarts the instance |
+| `crabdb list`                    | `--all`, `--format [table/json]`          | Lists all active CrabDB processes |
+| `crabdb logs`                    | `--file <db>`, `--tail <lines>`, `--follow` | Views logs for a running instance |
+| `crabdb reload`                  | `--file <db>`, `--config <file.cfg>`      | Reloads the instance with updated configuration |
+| `crabdb config`                  | `--file <db>`, `--set key=value`          | Changes config of a running instance |
+| `crabdb test`                    | `--file <db>`, `--check-integrity`        | Runs a quick test on the instance and database integrity |
+
+---
 
 ---
 
